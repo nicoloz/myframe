@@ -1,9 +1,14 @@
-<pre>
 <?php
 error_reporting(E_ALL);
 require __DIR__ . '/../autoload.php';
 
-//$dbh = new \App\Db();
+$lastNews = \App\Models\News::findLastRows(3);
+//var_dump($lastNews);
 
-$users = \App\Models\User::findByID(1);
-var_dump($users);
+ob_start();
+
+include __DIR__ . '/../App/Templates/index.php';
+
+echo ob_get_clean();
+
+?>
