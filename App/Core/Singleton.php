@@ -3,11 +3,11 @@
 namespace App\Core;
 
 
-class Singleton
+abstract class Singleton
 {
-    private static $instance;
+    protected static $instance;
 
-    private function __construct(){}
+    protected function __construct(){}
 
     public static function getInstance(){
         if(null == static::$instance){
