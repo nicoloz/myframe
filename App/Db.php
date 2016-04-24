@@ -1,10 +1,11 @@
 <?php
 namespace App;
-class Db
-{
-    protected $dbh;
 
-    public function __construct()
+class Db extends Core\Singleton
+{
+    protected  $dbh;
+
+    protected function __construct()
     {
         $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=frame;charset=utf8','root','');
     }
