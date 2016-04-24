@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 require __DIR__ . '/../autoload.php';
 
-$lastNews = \App\Models\News::findLastRows(3);
+$lastNews = \App\Models\News::findLastRows(2);
 //var_dump($lastNews);
 
 ob_start();
