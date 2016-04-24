@@ -5,7 +5,7 @@ abstract class Model
     const TABLE = '';
     public static function findAll()
     {
-        $db = new Db();
+        $db = Db::getInstance();
         return $db->query(
             'SELECT * FROM ' . static::TABLE,
             static::class
@@ -14,7 +14,7 @@ abstract class Model
 
     public static function findByID($id)
     {
-        $db = new Db();
+        $db = Db::getInstance();
         $query = "SELECT * FROM " . static::TABLE . " WHERE id = $id";
         $result = $db->query(
             $query,
@@ -25,7 +25,7 @@ abstract class Model
 
     protected static function findLastRowsByField($field, $limit)
     {
-        $db = new Db();
+        $db = Db::getInstance();
         $result = $db->query(
             'SELECT * FROM ' . static::TABLE . ' ORDER BY ' . $field . ' DESC LIMIT ' . $limit,
             static::class
